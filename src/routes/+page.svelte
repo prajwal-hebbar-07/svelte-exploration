@@ -1,16 +1,12 @@
-<script lang="ts">
-	let userName = $state('Existing User');
-	$inspect(userName);
-
-	// $effect(() => {
-	//     console.log("Effect Hook")
-	//     if(userName) {
-	//         console.log(`Effect hook is performing an action on ${userName}`)
-	//     }
-	// })
+<script>
+	import UserInput from '$lib/components/UserInput.svelte';
 </script>
 
-<h1>Your Username:</h1>
-<input type="text" bind:value={userName} />
+<UserInput userName="Nikolas"><h1>This is the Component</h1></UserInput>
 
-<p>{userName}</p>
+<style>
+	h1 {
+		color: violet;
+		font-weight: 100;
+	}
+</style>
