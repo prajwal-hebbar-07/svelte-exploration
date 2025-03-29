@@ -1,5 +1,12 @@
 <script lang="ts">
     let userName = $state("")
+
+    $effect(() => {
+        console.log("Effect Hook")
+        if(userName) {
+            console.log(`Effect hook is performing an action on ${userName}`)
+        }
+    })
 </script>
 
 <h1>Your Username:</h1>
