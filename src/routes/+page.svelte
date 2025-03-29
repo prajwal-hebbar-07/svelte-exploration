@@ -1,9 +1,18 @@
 <script lang="ts">
     let number = $state(0)
-    let udpateHintText = $derived(number === 0 ? "Hey! Why don't you click on the button" : `You have clicked ${number} times!`)
+    let udpateHintText = $derived.by(() => hintMessageUpdate(number))
 
     function onclick() {
         number = number + 1
+    }
+    function hintMessageUpdate(number: number) {
+        if(number === 0) {
+            return "Hey! Why don't you click on the button!"
+        } else if (number === 1) {
+            return "You have clicked exactly 1 time!"
+        } else {
+            return `You have clicked ${number} times!`
+        }
     }
 </script>
 
