@@ -1,17 +1,17 @@
 <script lang="ts">
-	let userName = $state('');
-	let isEditMode = $state(false);
+	let peopleWaiting = $state(['121']);
 </script>
 
-{#snippet userInput()}
-	<h1>Your UserName:</h1>
-	{#if isEditMode}
-		<input type="text" bind:value={userName} />
-	{:else}
-		<p>{userName}</p>
-	{/if}
+<h1>Waiting Queue!</h1>
+
+{#snippet queue(personId: string)}
+	<li>ID of the Person Waiting: {personId}</li>
 {/snippet}
 
-{@render userInput()}
+<ul>
+	{#each peopleWaiting as person}
+		{@render queue(person)}
+	{/each}
+</ul>
 
-<button onclick={() => (isEditMode = !isEditMode)}>{isEditMode ? 'Save Changes' : 'Edit'}</button>
+<button onclick={() => peopleWaiting.push(new Date().getTime().toString())}>I'm Waiting!!</button>
