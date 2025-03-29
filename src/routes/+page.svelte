@@ -8,6 +8,9 @@
 <button {onclick}>Click Me!</button>
 <h1>{number}</h1>
 
+<!-- This below line is one of the ways of updating conditional data -->
+<p>{number === 0 ? "Hey! Why don't you click on the Button?" : `You have clicked ${number} times!`}</p>
+
 <style>
     h1 {
         color: blueviolet;
